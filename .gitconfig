@@ -1,0 +1,17 @@
+[user]
+	email = chandan.devel@gmail.com
+	name = Chandan Singh
+[credential]
+	helper = cache --timeout=3600
+[color]
+	ui = true
+	status = auto
+	branch = auto
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
+[push]
+	default = simple
+[http]
+	proxy = 
