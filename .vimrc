@@ -26,12 +26,17 @@ set expandtab
 "-------------------------------------------------------
 
 "-------------------------------------------------------
+" Tabstop and indent shiftwidth config.
+" set default values
+set tabstop=2
+set shiftwidth=2
 " tab space value and indent shiftwidth for some filetypes
 autocmd FileType python set tabstop=4 | set shiftwidth=4
 autocmd FileType php set tabstop=2 | set shiftwidth=2
 autocmd FileType css set tabstop=2 | set shiftwidth=2
 autocmd FileType ruby 	set tabstop=4 | set shiftwidth=4
 autocmd FileType js 	set tabstop=2 | set shiftwidth=2
+autocmd FileType java 	set tabstop=2 | set shiftwidth=2
 autocmd FileType html 	set tabstop=2 | set shiftwidth=2
 autocmd FileType xhtml 	set tabstop=2 | set shiftwidth=2
 autocmd FileType c 	set tabstop=4 | set shiftwidth=4
@@ -40,9 +45,9 @@ autocmd FileType cpp 	set tabstop=4 | set shiftwidth=4
 
 "-------------------------------------------------------
 " Some things to do, only if vim version is 600 or greater
-if version >= 600 
+if version >= 600
 syntax enable		" enable syntax highlighting, but keep current colour settings
-filetype on 
+filetype on
 filetype plugin indent on
 else
 syntax on		" enable syntax highlighting, overriding current colour settings with defaults
@@ -50,8 +55,8 @@ endif
 "-------------------------------------------------------
 
 "-------------------------------------------------------
-" allows typing :tabv myfile.txt to open the specified 
-" file in a new read-only tab 
+" allows typing :tabv myfile.txt to open the specified
+" file in a new read-only tab
 cabbrev tabv tab sview +setlocal\ nomodifiable
 "-------------------------------------------------------
 
@@ -71,7 +76,7 @@ nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 "-------------------------------------------------------
 
 " Recognize .rkt files as scheme source
-if version >= 600 
+if version >= 600
 au BufNewFile,BufRead *.rkt set filetype=scheme
 endif
 
@@ -98,18 +103,19 @@ if has("autocmd")
     autocmd BufRead,BufNewFile *.inc set filetype=php
     autocmd BufRead,BufNewFile *.profile set filetype=php
     autocmd BufRead,BufNewFile *.view set filetype=php
+    autocmd BufRead,BufNewFile *.theme set filetype=php
   augroup END
 endif
 syntax on
 "-------------------------------------------------------
 
 "-------------------------------------------------------
-" Search hacks
+" Don't highlight all search results
 set nohlsearch
 "-------------------------------------------------------
 
 "-------------------------------------------------------
-" Powerline hacks
+" Powerline config
 set rtp+=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
 set laststatus=2
 set t_Co=256
@@ -132,7 +138,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 "-------------------------------------------------------
 " Syntastic config
-let g:syntastic_php_checkers = ['php'] 
+let g:syntastic_php_checkers = ['php']
 "-------------------------------------------------------
 
 "-------------------------------------------------------
@@ -154,12 +160,21 @@ set directory=/home/enigma/.tmp
 "-------------------------------------------------------
 
 "-------------------------------------------------------
-" Highlight text beyond 80 characters
-" match ErrorMsg '\%>80v.\+'
+" Higihlight background beyond 80 characters
+let &colorcolumn=join(range(81,999),",")
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
 "-------------------------------------------------------
 
 "-------------------------------------------------------
 " Command tab-complete settings
 set wildmenu
 set wildmode=full
+"-------------------------------------------------------
+
+"-------------------------------------------------------
+" Remove trailing whitespaces on pressing F5.
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+" Highlight trailing whitespaces.
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 "-------------------------------------------------------
