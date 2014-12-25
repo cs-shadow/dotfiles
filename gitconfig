@@ -1,1 +1,21 @@
-/home/enigma/.gitconfig
+[user]
+	email = chandan.devel@gmail.com
+	name = Chandan Singh
+[credential]
+	helper = cache --timeout=3600
+[color]
+	ui = true
+	status = auto
+	branch = auto
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
+[push]
+	default = current
+[url "ssh://git@ssh.github.com/"]
+	insteadOf = https://github.com/
+[url "ssh://git@ssh.github.com/"]
+	insteadOf = git@github.com:
+; [http]
+; 	proxy = http://proxy.iiit.ac.in:8080
