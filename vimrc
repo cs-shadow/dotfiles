@@ -116,16 +116,10 @@ set nohlsearch
 
 "-------------------------------------------------------
 " Powerline config
-set rtp+=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
+set rtp+=/home/enigma/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 set laststatus=2
 set t_Co=256
 set encoding=utf-8 " Necessary to show Unicode glyphs
-"-------------------------------------------------------
-
-"-------------------------------------------------------
-" Pathogen setup
-execute pathogen#infect()
-call pathogen#helptags() "generate helptags for everything in 'runtimepath'
 "-------------------------------------------------------
 
 "-------------------------------------------------------
@@ -186,4 +180,15 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 autocmd FileType php inoremap <C-d> <ESC>:call PhpDocSingle()<CR>i
 autocmd FileType php nnoremap <C-d> :call PhpDocSingle()<CR>
 autocmd FileType php vnoremap <C-d> :call PhpDocRange()<CR>
+"-------------------------------------------------------
+
+"-------------------------------------------------------
+" Pathogen setup
+execute pathogen#infect()
+call pathogen#helptags() "generate helptags for everything in 'runtimepath'
+"-------------------------------------------------------
+
+"-------------------------------------------------------
+" Map shortcut for saving file with sudo. Use `:w!!` to save in this case.
+cmap w!! w !sudo tee >/dev/null %
 "-------------------------------------------------------
