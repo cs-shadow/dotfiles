@@ -1,3 +1,18 @@
 [user]
     email = chandan@chandansingh.net
     name = Chandan Singh
+[color]
+    ui = true
+    status = auto
+    branch = auto
+[push]
+    default = current
+[alias]
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    br = branch
+    cdiff = diff --cached
+    co = checkout
+    cone = commit --amend --no-edit
+    fgrep = grep -F
+    pr = pull-request
+    st = status
