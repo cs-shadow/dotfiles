@@ -5,6 +5,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'michalbachowski/vim-wombat256mod'
+Plugin 'altercation/vim-colors-solarized'
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
@@ -13,6 +15,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Townk/vim-autoclose'
+Plugin 'python/black'
 
 call vundle#end()
 filetype plugin indent on
@@ -24,7 +27,11 @@ python3 powerline_setup()
 python3 del powerline_setup
 
 """ Basic options
-colorscheme wombat256mod
+syntax enable
+set background=dark
+colorscheme solarized
+" colorscheme wombat256mod
+
 set autoindent
 set backspace=indent,eol,start
 set confirm
@@ -32,13 +39,12 @@ set foldmethod=indent
 set nu
 set wildmenu
 set wildmode=longest,list
-syntax on
 
 """ Search
 set incsearch
 set ignorecase
-set nohlsearch
 set smartcase
+set hlsearch
 
 """ Tabs
 set expandtab
@@ -49,15 +55,29 @@ set shiftwidth=4
 set tabstop=4
 autocmd FileType yaml   set tabstop=2 | set shiftwidth=2
 
-""" Autocomplete
-" Don't select first match, always show popup.
-set completeopt=longest,menuone
-" Select option on pressing Enter.
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>" "
-
 """ Restore cursor to position in last editing session
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 
 """ Whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
+
+"""" Syntastic
+let g:syntastic_python_checkers = ['mypy', 'flake8', 'pylint']
+
+""" Fix pumvisible random text
+let g:AutoClosePreserveDotReg = 0
+
+""" YouCompleteMe!
+let g:ycm_python_interpreter_path = ''
+let g:ycm_python_sys_path = []
+let g:ycm_extra_conf_vim_data = [
+  \  'g:ycm_python_interpreter_path',
+  \  'g:ycm_python_sys_path'
+  \]
+let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
+
+""" Miscellaneous
+set spell
+nnoremap <space><space> :nohl<CR>
+nnoremap <space> za

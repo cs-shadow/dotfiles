@@ -16,3 +16,9 @@
     fgrep = grep -F
     pr = pull-request
     st = status
+[credential]
+	helper = store
+[url "git@github.com:"]
+	insteadOf = https://github.com
+[core]
+	excludesfile = ~/.gitignore
