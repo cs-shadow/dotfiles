@@ -1,16 +1,14 @@
 # PATH
-PATH="$HOME/Library/Python/3.10/bin:$PATH"
-PATH="$HOME/git/buildstream/buildstream/contrib:$PATH"
-export PATH
+export PATH="/opt/homebrew/bin:$PATH"
 
 # Powerline
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-. /usr/local/lib/python3.10/site-packages/powerline/bindings/bash/powerline.sh
+. /opt/homebrew/lib/python3.13/site-packages/powerline/bindings/bash/powerline.sh
 
 # Git
-. ~/.git-completions.bash
+. /opt/homebrew/etc/profile.d/bash_completion.sh
 
 # Aliases
 alias git='hub'
@@ -37,3 +35,6 @@ function mcd() {
 
 # `too many open files`
 ulimit -n 10240
+
+# Silence hints
+export HOMEBREW_NO_ENV_HINTS=1
