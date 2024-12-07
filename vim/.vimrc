@@ -9,13 +9,13 @@ Plugin 'altercation/vim-colors-solarized'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Townk/vim-autoclose'
 Plugin 'python/black'
+Plugin 'dense-analysis/ale'
 
 call vundle#end()
 filetype plugin indent on
@@ -68,6 +68,9 @@ let g:syntastic_python_checkers = ['mypy', 'flake8', 'pylint']
 """ Fix pumvisible random text
 let g:AutoClosePreserveDotReg = 0
 
+""" Completion
+set completeopt=menu,popup
+
 """ YouCompleteMe!
 let g:ycm_python_interpreter_path = ''
 let g:ycm_python_sys_path = []
@@ -76,6 +79,7 @@ let g:ycm_extra_conf_vim_data = [
   \  'g:ycm_python_sys_path'
   \]
 let g:ycm_global_ycm_extra_conf = '~/.vim/global_extra_conf.py'
+let g:ycm_auto_hover = 1
 
 """ Miscellaneous
 set spell

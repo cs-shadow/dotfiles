@@ -14,6 +14,7 @@
     co = checkout
     cone = commit --amend --no-edit
     fgrep = grep -F
+    open = browse
     pr = pull-request
     st = status
 [credential]
@@ -22,3 +23,5 @@
 	insteadOf = https://github.com
 [core]
 	excludesfile = ~/.gitignore
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com/
