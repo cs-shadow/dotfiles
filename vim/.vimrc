@@ -4,18 +4,19 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'michalbachowski/vim-wombat256mod'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
-Plugin 'kien/ctrlp.vim'
 Plugin 'Townk/vim-autoclose'
 Plugin 'python/black'
 Plugin 'dense-analysis/ale'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -70,6 +71,7 @@ let g:AutoClosePreserveDotReg = 0
 
 """ Completion
 set completeopt=menu,popup
+noremap <C-p> :Files<CR>
 
 """ YouCompleteMe!
 let g:ycm_python_interpreter_path = ''
