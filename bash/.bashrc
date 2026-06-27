@@ -1,5 +1,8 @@
 # PATH
-export PATH="/opt/homebrew/bin:$PATH"
+PATH="/opt/homebrew/bin:$PATH"
+PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+PATH="~/.local/bin:$PATH"
+export PATH
 
 # Powerline
 powerline-daemon -q
