@@ -12,9 +12,11 @@ POWERLINE_BASH_SELECT=1
 
 # Git
 . /opt/homebrew/etc/profile.d/bash_completion.sh
+alias git='hub'
+alias squash='EDITOR=true git rebase --autosquash'
+alias pull='EDITOR=true git pull-request -p'
 
 # Aliases
-alias git='hub'
 alias grep='grep --color=auto'
 alias ls='ls -G'
 alias ll='ls -l'
