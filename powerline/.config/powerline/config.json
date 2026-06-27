@@ -1,5 +1,8 @@
 {
 	"common": {
+		"paths": [
+			"~/.config/powerline"
+		],
 		"term_truecolor": false
 	},
 	"ext": {
@@ -13,7 +16,7 @@
 		},
 		"tmux": {
 			"colorscheme": "default",
-			"theme": "default"
+			"theme": "battery"
 		},
 		"vim": {
 			"colorscheme": "default",
