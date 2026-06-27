@@ -1,0 +1,8 @@
+# AGENTS.md
+
+## Git and GitHub
+
+* Before making any change, create a suitably named feature branch and switch to it.
+* Split work into separate commits for meaningful chunks of work.
+* When making a change to a previous commit, use `fixup` commits to associate the fixes with the relevant commit.
+* Do not put `codex` in commit messages or PR titles.
