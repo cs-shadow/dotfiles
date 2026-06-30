@@ -18,6 +18,7 @@ alias pull='EDITOR=true git pull-request -p'
 
 # Aliases
 alias grep='grep --color=auto'
+alias rg='rg --hidden --glob "!.git/*"'
 alias ls='ls -G'
 alias ll='ls -l'
 alias la='ls -a'
