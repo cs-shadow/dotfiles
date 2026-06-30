@@ -6,5 +6,5 @@
 * Split work into separate commits for meaningful chunks of work.
 * When making a change to a previous commit, use `fixup` commits to associate the fixes with the relevant commit.
 * When asked to make a PR, don't mark it "draft" unless explicitly specified.
-* Use `gh` when creating a PR or doing other write operations on GitHub.
+* Use `gh` outside the sandbox when creating a PR or doing other write operations on GitHub.
 * Do not put `codex` in commit messages or PR titles.
